@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="author" content="" /> -->
+    <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    
+    <title>
+        kMITRA Blogs
+    </title>
+
+    <style>
+        
+        :root {
+            --darkblue1: #101B24;
+            --darkblue2: #17232D;
+            --darkblue3: #22303B;
+            --darkblue4: #2d3f4e;
+            --darkblue5: #42505c;
+            --darkblue6: #849eb3;
+            --darkblue7: #ACB1B5;
+            --darkblue8: #88c0ed;
+        }
+
+        body {
+            background-color: var(--darkblue1);
+            color: white;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .navbar {
+            /* display: flex; */
+            background-color: var(--darkblue2);
+            border-radius: 13.888px;
+            border: 1.736px solid var(--darkblue3);
+            margin: 5px auto ;
+            height: 45.2px;
+            position: relative;
+            display: flex;
+            
+        }
+        
+        .navbar > * {
+            margin:  5px;
+        }
+        
+        .heading {
+            font-family: 'Julius Sans One';
+            display: inline-block;
+            width: 19%;
+            position: absolute;
+            left: 0; 
+            right: 0; 
+            margin-left: auto; 
+            margin-right: auto; 
+
+        }
+
+        .navbar > div {
+            display: inline-block;
+        }
+
+        .navbar > div >  button {
+            background-color: var(--darkblue2);
+            border: none;
+            color: var(--darkblue6);
+            /* position: absolute;
+            left: 0; */
+            display: inline-block;
+            font-size: 1.1em;
+            margin-top: 10px;
+            /* padding-bottom: 20px; */
+            /* vertical-align: middle; */
+        }
+
+        .sort-button {
+            /* width: 85%; */
+            flex: 2 ;
+
+            text-align: left;
+            /* vertical-align: middle; */
+        }
+
+        #sort-button:hover {
+            background-color: var(--darkblue5);
+        }
+
+        #sort-button:hover .sort-list {
+            display: block;
+        }
+
+        .theme-button {
+            width: 34%;
+            text-align: right;
+        }
+
+        .search-img {
+            width: 13%;
+            text-align: right;
+            justify-content: end;
+        }
+
+        #searchtxt {
+            background-color: var(--darkblue1);
+            border: 1.736px solid var(--darkblue3);
+            border-radius: 13px;
+            /* display: inline-block; */
+            padding : 3px 7px;
+            /* cursor: pointer; */
+            caret-color: #ACB1B5;
+            color: var(--darkblue7);
+            display: none;
+        }
+
+
+        .navbar > div > img {
+            display: inline-block;
+            margin-bottom: -3px;
+            padding: none 10px;
+            
+            
+        }
+
+        .sort-list {
+            position: absolute;
+            z-index: 6;
+            list-style-type: none;
+            text-align: left;
+            border-radius: 8px;
+            border: 1.736px solid var(--darkblue5);
+            padding-left: 0;
+            display: none;
+            /* left:3 ; */
+            /* margin-bottom: -10px; */
+
+        }
+
+        .sort-list > li {
+            background-color: var(--darkblue3);
+            padding: 10px;
+            font-size: large;
+            /* border: ; */
+        }
+
+        .sort-list > li:hover {
+            background-color: var(--darkblue4);
+        }
+        
+        .sort-list > li:last-child {
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px ;
+        }
+        .sort-list > li:first-child {
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px ;
+        }
+
+        /* .sort-list > li > label {
+            
+        } */
+
+        .sort-list > li  > input[type="radio"] {
+            margin-right: 7px;
+        }
+
+        .all-cards {
+            display: flex;
+            margin: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blog-card {
+            height: 350px;
+            width: 395px;
+            background-color: var(--darkblue2);
+            margin: 3vh 1.5vw;
+            /* border: 1.736px solid var(--darkblue3); */
+            border-radius: 8px;
+            padding: 8px;
+            color: var(--darkblue7);
+            position: relative;
+            transition-duration:100ms;
+            cursor: pointer;
+            
+            
+        }
+
+        .blog-card:hover {
+            margin-top: 18px;
+            transition-duration:100ms;
+            color: var(--darkblue8);
+        }
+
+        .blog-card > p {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+        }
+        .blog-image {
+            height: 60%;
+            border: none ;
+            border-radius: 8px;
+            /* border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px; */
+        }
+
+        .blog-title {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .blog-author {
+            width: 49%;
+            /* text-align: left; */
+            left: 0;
+        }
+
+        .blog-date {
+            width: 49%;
+            /* text-align: right; */
+            right: 0;
+        }
+
+    </style>
+
+    </head>
+    <body >
+        <img src="https://kmit.in/emagazine/wp-content/uploads/2020/09/kmitralogo-1.png" alt="kMitra Logo" class="kmitralogo" width="192.69px" height="105.895px">
+        <div class="navbar">
+            <div class="sort-button"><button id="sort-button">Sort by</button></div>
+            <ul class="sort-list" style="display: none;">
+                <li><input type="radio" id="titlea2z" name="sortby" value="titlea2z" onclick="display_blogs(this.value)"><label for="titlea2z">Title (A to Z)</label></li>
+                <li><input type="radio" id="titlez2a" name="sortby" value="titlez2a" onclick="display_blogs(this.value)"><label for="titlez2a">Title (Z to A)</label></li>
+                <li><input type="radio" id="authora2z" name="sortby" value="authora2z" onclick="display_blogs(this.value)"><label for="authora2z">Author (A to Z)</label></li>
+                <li><input type="radio" id="authorz2a" name="sortby" value="authorz2a" onclick="display_blogs(this.value)"><label for="authorz2a">Author (Z to A)</label></li>
+                <li><input type="radio" id="publicationnew" name="sortby" value="publicationnew" onclick="display_blogs(this.value)"><label for="publicationnew">Publication date (newest first)</label></li>
+                <li><input type="radio" id="publicationold" name="sortby" value="publicationold" onclick="display_blogs(this.value)"><label for="publicationold">Publication date (oldest first)</label></li>
+              </ul>
+            <h1 class = "heading">Blogs</h1>
+            <!-- <div class="theme-button"><button >Theme</button></div> -->
+            <input type="text" id="searchtxt" placeholder="search..">
+            <div class="search-img"><img style="justify-self: left;" src="https://developer.mozilla.org/static/media/search.cebfd63a204ba9fefa74.svg" alt="searchlogo2" height="20px" width="20px" onclick="display_search()"></div>
+        </div>
+        <div class="all-cards">
+                
+        </div>
+        <script>
+            var blog_data = [
+                {
+                    "title": "The Importance of Continuous Learning",
+                    "author": "Jayashree",
+                    "date": "2023-07-15",
+                    "image": "https://source.unsplash.com/1250x700/?learning"
+                },
+                {
+                    "title": "Exploring the Wonders of Nature",
+                    "author": "Sai Krishna",
+                    "date": "2023-07-10",
+                    "image": "https://source.unsplash.com/1250x700/?nature"
+                },
+                {
+                    "title": "The Art of Mindfulness",
+                    "author": "Shivani",
+                    "date": "2023-07-05",
+                    "image": "https://source.unsplash.com/1250x700/?mindfulness"
+                },
+                {
+                    "title": "A Journey to the Stars",
+                    "author": "Sanjay",
+                    "date": "2023-07-02",
+                    "image": "https://source.unsplash.com/1250x700/?stars"
+                },
+                {
+                    "title": "The Joy of Cooking",
+                    "author": "Jayashree",
+                    "date": "2023-06-28",
+                    "image": "https://source.unsplash.com/1250x700/?cooking"
+                },
+                {
+                    "title": "The Beauty of Wildlife",
+                    "author": "Sai Krishna",
+                    "date": "2023-06-20",
+                    "image": "https://source.unsplash.com/1250x700/?wildlife"
+                },
+                {
+                    "title": "Finding Inner Peace",
+                    "author": "Jayashree",
+                    "date": "2023-06-15",
+                    "image": "https://source.unsplash.com/1250x700/?peace"
+                },
+                {
+                    "title": "Capturing Moments",
+                    "author": "Sai Krishna",
+                    "date": "2023-06-10",
+                    "image": "https://source.unsplash.com/1250x700/?moments"
+                }
+            ];
+
+            function formatDate(dateString) {
+                const date = new Date(dateString);
+
+                const day = date.getDate();
+                const month = date.getMonth();
+                const year = date.getFullYear();
+
+                const monthAbbrlist = [
+                    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                ];
+                const monthAbbr = monthAbbrlist[month];
+
+                const formattedDate = `${monthAbbr} ${day} ${year}`;
+
+                return formattedDate;
+            }
+
+            function create_blog_div(blog) {
+                let blog_card = `
+                <div class="blog-card">
+                    <div class="blog-image" style="background-image: url(${blog["image"]}); background-size:100% 100%;"></div>
+                    <h2 class="blog-title" >${blog["title"]}</h2>
+                    <p class="blog-author">${blog["author"]}</p>
+                    <p class="blog-date">${formatDate(blog["date"])}</p>
+                </div>
+                `;
+                return blog_card;
+            }
+
+            document.getElementById("sort-button").addEventListener("click", function() {
+                var ls = document.querySelector(".sort-list");
+                if (ls.style.display == "none") {
+                    ls.style.display = "block";
+                } else {
+                    ls.style.display = "none";
+                }
+            });
+
+            function display_blogs(sortby) {
+                var sorted_blogs = blog_data.slice();
+
+                if (sortby === "titlea2z") {
+                    sorted_blogs.sort((a, b) => a.title.localeCompare(b.title));
+                } else if (sortby === "titlez2a") {
+                    sorted_blogs.sort((a, b) => b.title.localeCompare(a.title));
+                } else if (sortby === "authora2z") {
+                    sorted_blogs.sort((a, b) => a.author.localeCompare(b.author));
+                } else if (sortby === "authorz2a") {
+                    sorted_blogs.sort((a, b) => b.author.localeCompare(a.author));
+                } else if (sortby === "publicationnew") {
+                    sorted_blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (sortby === "publicationold") {
+                    sorted_blogs.sort((a, b) => new Date(a.date) - new Date(b.date));
+                } else if (sortby.includes("match")) {
+                    let search = document.getElementById("searchtxt").value;
+                    sorted_blogs = sorted_blogs.filter((obj) => obj.title.toLocaleLowerCase().includes(search) || obj.author.toLocaleLowerCase().includes(search));
+                    console.log(sorted_blogs);
+                }
+
+                var div_content = "";
+                for (let i = 0; i < sorted_blogs.length; i++) {
+                    div_content += create_blog_div(sorted_blogs[i]);
+                }
+
+                document.querySelector(".all-cards").innerHTML = div_content;
+                document.querySelector(".sort-list").style.display = "none";
+            }
+
+            function display_search() {
+                document.getElementById("searchtxt").style.display = "block";
+                document.querySelector(".search-img").style.display = "none";
+            }
+
+            document.getElementById("searchtxt").addEventListener("input", () => {
+                display_blogs("match");
+            });
+
+            document.querySelector(".sort-list").addEventListener("mouseleave", () => {
+                document.querySelector(".sort-list").style.display = "none";
+                document.querySelector(".sort-list").style.display = "none";
+            });
+
+            display_search();
+            display_blogs("none");
+
+        </script>
+    </body>
+</html>
